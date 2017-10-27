@@ -44,8 +44,9 @@ $(document).ready(function () {
                 polyLines[i].setMap(map);
             }
         }
-
-        if (markers !== null && polyLines !== null) {
+        if(markers === null && polyLines === null){
+          markersAndLines();
+        } else {
             setMapAndPolyOnAll(null);
             markersAndLines();
         }
