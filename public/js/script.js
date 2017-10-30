@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var myLatLng = {lat: 45.253342, lng: 19.845922};
-    var markers = [];
-    var polyLines = [];
+    var markers;
+    var polyLines;
     var map = new google.maps.Map(document.getElementById('map'), {
         center: myLatLng,
         zoom: 15
@@ -39,13 +39,12 @@ $(document).ready(function () {
         };
 
         function setMapAndPolyOnAll(map) {
-            for (var i = 0; i < markers.length; i++) {
-                markers[i].setMap(map);
-                polyLines[i].setMap(map);
-            }
+            markers.setMap(map);
+            polyLines.setMap(map);
         }
-        if(markers === null && polyLines === null){
-          markersAndLines();
+
+        if (markers === null && polyLines === null) {
+            markersAndLines();
         } else {
             setMapAndPolyOnAll(null);
             markersAndLines();
